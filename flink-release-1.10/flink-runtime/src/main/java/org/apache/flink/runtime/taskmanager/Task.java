@@ -396,6 +396,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 		invokableHasBeenCanceled = new AtomicBoolean(false);
 
 		// finally, create the executing thread, but do not start it
+		//并没有使用 类似spark的线程池
 		executingThread = new Thread(TASK_THREADS_GROUP, this, taskNameWithSubtask);
 	}
 
