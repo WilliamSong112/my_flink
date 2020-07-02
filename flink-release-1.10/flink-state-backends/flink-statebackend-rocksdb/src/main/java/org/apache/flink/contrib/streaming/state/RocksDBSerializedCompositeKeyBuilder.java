@@ -100,10 +100,12 @@ class RocksDBSerializedCompositeKeyBuilder<K> {
 	}
 
 	/**
-	 * Returns a serialized composite key, from the key and key-group provided in a previous call to
+	 * Returns a serialized composite key 组合键, from the key and key-group provided in a previous call to
 	 * {@link #setKeyAndKeyGroup(Object, int)} and the given namespace.
+	 * 从前面对setKeyAndKeyGroup(Object, int)的调用中提供的键和键组以及给定的名称空间。
 	 *
-	 * @param namespace           the namespace to concatenate for the serialized composite key bytes.
+	 * @param namespace           the namespace to concatenate 连接 for the serialized composite key bytes.
+	 *                            要为序列化的复合键字节连接的名称空间。
 	 * @param namespaceSerializer the serializer to obtain the serialized form of the namespace.
 	 * @param <N>                 the type of the namespace.
 	 * @return the bytes for the serialized composite key of key-group, key, namespace.

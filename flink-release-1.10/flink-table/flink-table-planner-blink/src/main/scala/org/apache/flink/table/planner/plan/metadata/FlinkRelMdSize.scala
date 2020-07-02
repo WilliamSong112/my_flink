@@ -42,6 +42,9 @@ import scala.collection.JavaConversions._
   * FlinkRelMdSize supplies a implementation of
   * [[RelMetadataQuery#getAverageRowSize]] and
   * [[RelMetadataQuery#getAverageColumnSizes]] for the standard logical algebra.
+  *
+  * * FlinkRelMdSize提供了[[RelMetadataQuery#getAverageRowSize]]和的实现
+  * [[RelMetadataQuery# getaveragecolumnsize]]，用于标准逻辑代数。
   */
 class FlinkRelMdSize private extends MetadataHandler[BuiltInMetadata.Size] {
 

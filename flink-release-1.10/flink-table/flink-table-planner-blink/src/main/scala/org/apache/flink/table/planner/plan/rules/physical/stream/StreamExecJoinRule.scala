@@ -37,6 +37,7 @@ import scala.collection.JavaConversions._
 /**
   * Rule that converts [[FlinkLogicalJoin]] without window bounds in join condition
   * to [[StreamExecJoin]].
+  * 将连接条件中没有窗口边界的[[FlinkLogicalJoin]]转换为[[StreamExecJoin]]的规则。
   */
 class StreamExecJoinRule
   extends RelOptRule(

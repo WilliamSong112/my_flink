@@ -55,6 +55,7 @@ public abstract class AbstractRocksDBState<K, N, V> implements InternalKvState<K
 	final TypeSerializer<V> valueSerializer;
 
 	/** The current namespace, which the next value methods will refer to. */
+	//*当前名称空间，下一个值方法将引用它。
 	private N currentNamespace;
 
 	/** Backend that holds the actual RocksDB instance where we store state. */

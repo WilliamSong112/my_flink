@@ -887,7 +887,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 			jobCompletionActions.jobMasterFailed(cause);
 		}
 	}
-
+	// 得到  archivedExecutionGraph
 	private void jobStatusChanged(
 			final JobStatus newJobStatus,
 			long timestamp,

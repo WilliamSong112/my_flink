@@ -112,6 +112,7 @@ public class KeyedStream<T, KEY> extends DataStream<T> {
 	 *            Base stream of data
 	 * @param keySelector
 	 *            Function for determining state partitions
+	 *            函数，用于确定状态分区
 	 */
 	public KeyedStream(DataStream<T> dataStream, KeySelector<T, KEY> keySelector) {
 		this(dataStream, keySelector, TypeExtractor.getKeySelectorTypes(keySelector, dataStream.getType()));

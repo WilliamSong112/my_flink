@@ -34,6 +34,11 @@ import scala.collection.JavaConversions._
   * Modification:
   * - Condition in the merged program will be simplified if it exists.
   * - Don't merge calcs which contain non-deterministic expr
+  *
+  * *修改:
+  * -合并程序中的条件将被简化，如果存在的话。
+  * -不要合并包含非确定性expr的calc
+  * /
   */
 
 /**

@@ -49,6 +49,7 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 
 /** RocksDB compaction filter utils for state with TTL. */
+//RocksDB压缩过滤器utils的状态与TTL。* /
 public class RocksDbTtlCompactFiltersManager {
 	private static final Logger LOG = LoggerFactory.getLogger(FlinkCompactionFilter.class);
 

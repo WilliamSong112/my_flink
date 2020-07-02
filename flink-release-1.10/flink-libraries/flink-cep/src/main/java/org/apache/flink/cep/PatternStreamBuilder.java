@@ -135,7 +135,6 @@ final class PatternStreamBuilder<IN> {
 				operator);
 		} else {
 			KeySelector<IN, Byte> keySelector = new NullByteKeySelector<>();
-
 			patternStream = inputStream.keyBy(keySelector).transform(
 				"GlobalCepOperator",
 				outTypeInfo,

@@ -58,6 +58,7 @@ public class ParserImpl implements Parser {
 
 	@Override
 	public List<Operation> parse(String statement) {
+		//statement  声明
 		CalciteParser parser = calciteParserSupplier.get();
 		FlinkPlannerImpl planner = validatorSupplier.get();
 		// parse the sql query

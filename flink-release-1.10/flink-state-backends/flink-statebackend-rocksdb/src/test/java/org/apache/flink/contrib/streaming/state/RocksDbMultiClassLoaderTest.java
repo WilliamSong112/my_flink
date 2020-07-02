@@ -34,6 +34,8 @@ import static org.junit.Assert.assertNotEquals;
  * This test validates that the RocksDB JNI library loading works properly
  * in the presence of the RocksDB code being loaded dynamically via reflection.
  * That can happen when RocksDB is in the user code JAR, or in certain test setups.
+ * 这个测试验证在通过反射动态加载RocksDB代码的情况下，RocksDB JNI库加载是否正常。
+ 当RocksDB在用户代码JAR中，或者在某些测试设置中，就会发生这种情况。
  */
 public class RocksDbMultiClassLoaderTest {
 

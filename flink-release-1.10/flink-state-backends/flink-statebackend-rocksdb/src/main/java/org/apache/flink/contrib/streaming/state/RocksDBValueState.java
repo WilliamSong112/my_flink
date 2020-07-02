@@ -47,6 +47,7 @@ class RocksDBValueState<K, N, V>
 	 * Creates a new {@code RocksDBValueState}.
 	 *
 	 * @param columnFamily The RocksDB column family that this state is associated to.
+	 *                     与此状态关联的RocksDB列族。
 	 * @param namespaceSerializer The serializer for the namespace.
 	 * @param valueSerializer The serializer for the state.
 	 * @param defaultValue The default value for the state.

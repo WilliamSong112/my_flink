@@ -443,6 +443,7 @@ public class JoinedStreams<T1, T2> {
 
 	/**
 	 * CoGroup function that does a nested-loop join to get the join result.
+	 * CoGroup函数，执行嵌套循环联接以获得联接结果。
 	 */
 	private static class JoinCoGroupFunction<T1, T2, T>
 			extends WrappingFunction<JoinFunction<T1, T2, T>>

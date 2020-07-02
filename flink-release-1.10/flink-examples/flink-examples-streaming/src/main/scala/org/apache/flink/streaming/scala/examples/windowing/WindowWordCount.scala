@@ -18,9 +18,12 @@
 
 package org.apache.flink.streaming.scala.examples.windowing
 
+
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.api.scala._
-import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.streaming.api.scala.{AllWindowedStream, DataStream, StreamExecutionEnvironment}
+import org.apache.flink.streaming.api.windowing.time.Time
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.streaming.examples.wordcount.util.WordCountData
 
 /**
@@ -84,6 +87,12 @@ object WindowWordCount {
       .countWindow(windowSize, slideSize)
       // group by the tuple field "0" and sum up tuple field "1"
       .sum(1)
+
+
+//    val counts2: AllWindowedStream[String, TimeWindow] = text
+//      // split up the lines in pairs (2-tuple) containing: (word,1)
+//        .timeWindowAll(Time.seconds(30)).process().flatMap()
+
 
     // emit result
     if (params.has("output")) {

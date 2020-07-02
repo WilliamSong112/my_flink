@@ -33,6 +33,9 @@ import scala.collection.JavaConversions._
   * A FlinkOptimizeProgram that decorrelates a query
   * and validates whether the result still has correlate variables.
   *
+  * 用于修饰查询的FlinkOptimizeProgram
+并验证结果中是否还有相关变量。
+  *
   * @tparam OC OptimizeContext
   */
 class FlinkDecorrelateProgram[OC <: FlinkOptimizeContext] extends FlinkOptimizeProgram[OC] {

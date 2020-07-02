@@ -311,6 +311,8 @@ public class DataStream<T> {
 
 	/**
 	 * Partitions the operator state of a {@link DataStream} by the given key positions.
+	 * 按给定的关键位置对 DataStream  的操作符状态进行分区
+	 *   给定key  对operator state 尽心分区
 	 *
 	 * @param fields
 	 *            The position of the fields on which the {@link DataStream}
