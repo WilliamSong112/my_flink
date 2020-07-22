@@ -643,7 +643,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 	public Map<JobVertexID, ExecutionJobVertex> getAllVertices() {
 		return Collections.unmodifiableMap(this.tasks);
 	}
-
+	// 下面  getAllExecutionVertices  调用
 	@Override
 	public Iterable<ExecutionJobVertex> getVerticesTopologically() {
 		// we return a specific iterator that does not fail with concurrent modifications
@@ -686,7 +686,8 @@ public class ExecutionGraph implements AccessExecutionGraph {
 	public Map<IntermediateDataSetID, IntermediateResult> getAllIntermediateResults() {
 		return Collections.unmodifiableMap(this.intermediateResults);
 	}
-
+	//
+	//调用了 上面方法  getVerticesTopologically
 	@Override
 	public Iterable<ExecutionVertex> getAllExecutionVertices() {
 		return new Iterable<ExecutionVertex>() {
@@ -781,7 +782,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 	}
 
 	// --------------------------------------------------------------------------------------------
-	//  Actions
+	//  Actions   attch  附加的意思
 	// --------------------------------------------------------------------------------------------
 
 	public void attachJobGraph(List<JobVertex> topologiallySorted) throws JobException {
@@ -796,13 +797,13 @@ public class ExecutionGraph implements AccessExecutionGraph {
 
 		final ArrayList<ExecutionJobVertex> newExecJobVertices = new ArrayList<>(topologiallySorted.size());
 		final long createTimestamp = System.currentTimeMillis();
-
+		//遍历  排序后 的jobVertex  集合
 		for (JobVertex jobVertex : topologiallySorted) {
 
 			if (jobVertex.isInputVertex() && !jobVertex.isStoppable()) {
 				this.isStoppable = false;
 			}
-
+			//创建 一个  ExecutionJobVertex
 			// create the execution job vertex and attach it to the graph
 			ExecutionJobVertex ejv = new ExecutionJobVertex(
 					this,

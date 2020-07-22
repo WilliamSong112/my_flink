@@ -94,6 +94,8 @@ import java.util.stream.Collectors;
  * about the state of the Flink session cluster.（它还知道Flink会话集群的状态）
  *
  * execution graph由  jobmaster生成
+ *
+ *  在调度里边生成executor graph
  */
 public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<DispatcherId> implements DispatcherGateway {
 

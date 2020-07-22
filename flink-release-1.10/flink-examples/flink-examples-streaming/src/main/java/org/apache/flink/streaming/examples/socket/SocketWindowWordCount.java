@@ -21,8 +21,10 @@ package org.apache.flink.streaming.examples.socket;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.runtime.jobgraph.JobGraph;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.graph.StreamGraph;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.util.Collector;
 
@@ -48,7 +50,8 @@ public class SocketWindowWordCount {
 		try {
 			final ParameterTool params = ParameterTool.fromArgs(args);
 			hostname = params.has("hostname") ? params.get("hostname") : "localhost";
-			port = params.getInt("port");
+			//port = params.getInt("port");
+			port = 12345;
 		} catch (Exception e) {
 			System.err.println("No port specified. Please run 'SocketWindowWordCount " +
 				"--hostname <hostname> --port <port>', where hostname (localhost by default) " +
@@ -88,8 +91,12 @@ public class SocketWindowWordCount {
 
 		// print the results with a single thread, rather than in parallel
 		windowCounts.print().setParallelism(1);
+		StreamGraph sg = env.getStreamGraph();
+		//JobGraph gb =  env.getStreamGraph().getJobGraph();
 
-		env.execute("Socket Window WordCount");
+		System.out.println(env.getStreamGraph().getJobGraph());
+
+		//env.execute("Socket Window WordCount");
 	}
 
 	// ------------------------------------------------------------------------

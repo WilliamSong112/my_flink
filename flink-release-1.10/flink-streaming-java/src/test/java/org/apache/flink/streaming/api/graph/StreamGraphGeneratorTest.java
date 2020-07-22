@@ -112,6 +112,8 @@ public class StreamGraphGeneratorTest extends TestLogger {
 				.name("D");
 
 		final StreamGraph sg = env.getStreamGraph();
+		//String ec = env.getStreamGraph().getExecutionConfig().toString();
+		//String  s = ec.toString();
 		for (StreamNode node : sg.getStreamNodes()) {
 			switch (node.getOperatorName()) {
 

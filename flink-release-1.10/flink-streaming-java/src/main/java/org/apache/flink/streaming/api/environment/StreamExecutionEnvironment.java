@@ -1584,6 +1584,7 @@ public class StreamExecutionEnvironment {
 		clean(function);
 
 		final StreamSource<OUT, ?> sourceOperator = new StreamSource<>(function);
+		// data stream source 是一个  operator
 		return new DataStreamSource<>(this, typeInfo, sourceOperator, isParallel, sourceName);
 	}
 
@@ -1777,6 +1778,8 @@ public class StreamExecutionEnvironment {
 	 * @param jobName Desired name of the job
 	 * @param clearTransformations Whether or not to clear previously registered transformations
 	 * @return The streamgraph representing the transformations
+	 *  返回代表 transfrom 的  stream graph
+	 * 。。。。。。。。。。。。。。。。。
 	 */
 	@Internal
 	public StreamGraph getStreamGraph(String jobName, boolean clearTransformations) {

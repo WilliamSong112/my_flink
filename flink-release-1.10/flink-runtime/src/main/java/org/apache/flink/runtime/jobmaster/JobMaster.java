@@ -273,7 +273,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		this.taskManagerHeartbeatManager = NoOpHeartbeatManager.getInstance();
 		this.resourceManagerHeartbeatManager = NoOpHeartbeatManager.getInstance();
 	}
-
+	// 从这创建一个  scheduler
 	private SchedulerNG createScheduler(final JobManagerJobMetricGroup jobManagerJobMetricGroup) throws Exception {
 		return schedulerNGFactory.createInstance(
 			log,
@@ -819,7 +819,8 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		schedulerNG = newScheduler;
 		jobManagerJobMetricGroup = newJobManagerJobMetricGroup;
 	}
-	//此处开始 jobgraph-->exector graph
+	//此处开始 jobgraph-->exector graph 准确--- 从 start 开始
+	//JobMaster.start—>JobMaster.startJobExecution—>resetAndScheduleExecutionGraph
 	private void resetAndStartScheduler() throws Exception {
 		validateRunsInMainThread();
 
@@ -841,10 +842,10 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 				}
 			);
 		}
-
+		// 半天找不到   原来在这
 		schedulerAssignedFuture.thenRun(this::startScheduling);
 	}
-
+	//  上一个方法调用
 	private void startScheduling() {
 		checkState(jobStatusListener == null);
 		// register self as job status change listener

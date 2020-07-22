@@ -46,9 +46,10 @@ SqlUseCatalog SqlUseCatalog() :
 {
     SqlIdentifier catalogName;
     SqlParserPos pos;
+        SqlParserPos pos1;
 }
 {
-    <USE> <CATALOG> { pos = getPos();}
+    <USE> { pos1 = getPos();} <CATALOG> { pos = getPos();}
     catalogName = SimpleIdentifier()
     {
         return new SqlUseCatalog(pos, catalogName);

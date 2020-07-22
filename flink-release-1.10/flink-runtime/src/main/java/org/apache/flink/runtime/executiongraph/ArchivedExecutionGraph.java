@@ -43,6 +43,8 @@ import java.util.Optional;
 
 /**
  * An archived execution graph represents a serializable form of the {@link ExecutionGraph}.
+ *
+ * 存档 的执行图表示{@link ExecutionGraph}的可序列化形式。
  */
 public class ArchivedExecutionGraph implements AccessExecutionGraph, Serializable {
 
